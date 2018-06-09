@@ -19,68 +19,31 @@
 <div class="header">
 </div>
 <!--header end-->
+
 <div class="bodyer">
+<!--banner strat-->
+	<div class="banner">
+	    <div class="swiper-container" id="swiper-container1">
+	        <div class="swiper-wrapper">
+	             <div class="swiper-slide"><a href="javascript:;"><img src="image/home/banner1.jpg" alt="banner1" width="100%"></a></div>
+	             <div class="swiper-slide"><a href="javascript:;"><img src="image/home/banner2.jpg" alt="banner2" width="100%"></a></div>
+	        </div>
+	        <!-- Add Pagination -->
+	        <div class="swiper-pagination"></div>
+	        <!-- Add Arrows -->
+	        <div class="swiper-button-next"></div>
+	        <div class="swiper-button-prev"></div>
+	    </div>	
+	</div>
+	<!--banner end-->
 </div>
 <!--footer start-->
 <div class="footer">
 </div>
 <!--footer end-->
-<script type="text/javascript" src="statics/css/themes/js/jquery-1.11.1.js" tppabs="http://www.smpacking.com/statics/css/themes/js/jquery-1.11.1.js"></script>
-<script type="text/javascript" src="statics/css/themes/js/swiper.min.js" tppabs="http://www.smpacking.com/statics/css/themes/js/swiper.min.js"></script>
-<script type="text/javascript" src="statics/css/themes/js/index.js" tppabs="http://www.smpacking.com/statics/css/themes/js/index.js"></script>
-<script type="text/javascript" src="statics/css/themes/js/swiper_width.js" tppabs="http://www.smpacking.com/statics/css/themes/js/swiper_width.js"></script>
-<div class="xunpan">
-	<a href="javascript:;">
-        <i></i>
-        <span>Click here to leave a message</span>
-    </a>
-</div>
-<div class="jion">
-	<h2>Fill in your information</h2>
-	<script language='javascript' src="index.php-m=formguide&c=index&a=show&formid=13&action=js&siteid=1" tppabs="http://www.smpacking.com/index.php?m=formguide&c=index&a=show&formid=13&action=js&siteid=1"></script>
-	<span></span>
-</div>
-<script type="text/javascript">
-	$(function(){
-		$(".xunpan").click(function(){
-			$(".jion").stop().slideToggle(300);
-			$(".xunpan").stop().slideUp(100);
-		});	
-		$(".jion span").click(function(){
-			$(".jion").stop().slideUp(300);
-			$(".xunpan").stop().slideDown(100);
-		});	
-	});
-	
-</script>
-<div class="tel_bg"></div>
-<div class="skype">
-    <ul>
-    	<li class="skype_li"><a href="tel:0086-021-51698905">0086-021-51698905</a></li>
-    	<li class="skype_li1"><a href="mailto:June@smpacking.com" rel="nofollow">June@smpacking.com</a></li>
-    	<li class="skype_li2"><a href="whatsapp://send?abid=86-18221022218">86-18221022218</a></li>
-    	
-    </ul>
-</div>
-<script type="text/javascript">
-/*skype*/
-$(".tel_bg,.skype").hover(function(){
-	$(".skype").stop().animate({right:0},200);
-	$(".tel_bg").stop().animate({right:125},200);
-},function(){
-	$(".skype").stop().animate({right:"-130px"},200);
-	$(".tel_bg").stop().animate({right:0},200);
-});
-/* 加载head */
-$.get("html/home/head.html",{},function(data){
-	$(".header").html(data);
-});
-
-$.get("html/home/homePage.html",{},function(data){
-	$(".bodyer").html(data);
-});
-
-$.get("html/home/footer.html",{},function(data){
-	$(".footer").html(data);
-});
-</script>
+<script type="text/javascript" src="statics/css/themes/js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="statics/css/themes/js/swiper.min.js""></script>
+<script type="text/javascript" src="statics/css/themes/js/index.js"></script>
+<script type="text/javascript" src="statics/css/themes/js/swiper_width.js"></script>
+</body>
+</html>

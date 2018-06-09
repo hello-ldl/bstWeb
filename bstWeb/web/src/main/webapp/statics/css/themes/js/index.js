@@ -1,15 +1,25 @@
 // JavaScript Document
 $(function(){
+	/* 头部 */
+	$.get("html/home/head.html",{},function(data){
+		$(".header").html(data);
+	});
 	/*首页轮播*/
 	var swiper = new Swiper('#swiper-container1', {
 		pagination: '.swiper-pagination',
 		paginationClickable: true,
 		loop:true,
-        grabCursor: true,
+	    grabCursor: true,
 		autoplay: 5000,
 		nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev'
+	    prevButton: '.swiper-button-prev'
 	});	
+	/* 加载尾部 */
+	$.get("html/home/footer.html",{},function(data){
+		$(".footer").html(data);
+	});
+	
+	
 	/*首页手机端导航*/
 	$(".nav_icon").click(function(){
 		if(!$(this).hasClass("curr"))

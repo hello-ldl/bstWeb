@@ -52,7 +52,7 @@ input{ outline:medium;font-family:"Microsoft Yahei";}
 .nav_icon.curr:after{
 	position: fixed;
 	display: block;
-	content: '';
+	: '';
 	width: 100%;
 	height: 100%;
 	top: 0;left: 0;
@@ -73,7 +73,7 @@ input{ outline:medium;font-family:"Microsoft Yahei";}
 .swiper-slide a{ display:block; width:100%;}
 .swiper-slide img{ width:100%;}
 /*content*/
-.content{ width:100%; height:auto; overflow:hidden; margin:25px 0;}
+.content{ width:100%; height:auto; overflow:hidden; margin:115px 0px 25px 0px;}
 /*news*/
 .column{ width:100%; height:auto; overflow:hidden; padding:25px 0;}
 .column_contact{ width:100%; height:auto; overflow:hidden;}
@@ -389,7 +389,15 @@ border: 1px solid #0d4a94;
 .jion .col-lg-6{ width:100%;}
 .jion .submit{ margin-right:15px; margin-top:10px;}
 
+.top10:{
+	top:10px;
+}
 
 .sr_list{ margin-top:20px;}
 
 .details .submit{ padding:0 15px;}
+
+.logo{
+	width:250px;
+	height:80px
+}

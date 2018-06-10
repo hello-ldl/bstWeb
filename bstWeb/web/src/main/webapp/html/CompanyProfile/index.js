@@ -4,6 +4,23 @@ $(function(){
 	/* 头部 */
 	$.get("../../html/home/head.html",{},function(data){
 		$(".header").html(data);
+		/*首页手机端导航*/
+		$(".nav_icon").click(function(){
+			if(!$(this).hasClass("curr"))
+			{
+				$(this).addClass("curr");
+				$(".mb_nav").stop().animate({right:0,opacity:1},300);
+			}
+			else
+			{
+				$(this).removeClass("curr");
+				$(".mb_nav").stop().animate({right:'-80%',opacity:0},300);	
+			}
+		});
+		$(".mb_nav li").click(function(){
+			$(".nav_icon").removeClass("curr");
+			$(".mb_nav").stop().animate({right:'-80%',opacity:0},300);
+		});
 	});
 
 	/* 加载尾部 */
@@ -13,80 +30,10 @@ $(function(){
 	
 	$.get("1.html",{},function(data){
 		$(".bodyer").html(data);
-		var url = "products/data.html";
-		id = getQueryString("id");
-		if(id){
-			url = id + "/data.html";
-		};
-		$.get(url,{},function(result){
-			json = JSON.parse(result);
-			query(pageNo);
-		});	
-	});
-});
-
-/**
- * 获取url参数
- * @param name
- * @returns
- */
-function getQueryString(name) { 
-    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
-    var r = window.location.search.substr(1).match(reg); 
-    if (r != null) return unescape(r[2]); 
-    return null; 
-}
-
-function query(pageNo){
-	var start = (pageNo - 1) * pageSize; 
-	var end = start + pageSize;
-	if(end > json.length){
-		end = json.length
-	};
-	var html;
-	if(id){
-		var data = {
-				"id" : id,
-				"clazz" : json.clazz
-		};
-		html = juicer(position2,data);
-	}else{
-		html = position1;
-	}
-	html += "<ul>";
-	for(start;  start < end; start++){
-		console.log(start);
-		var name = (json.data)[start].name;
-		var data = {
-				"name" : name,
-				"id" : json.clazz,
-				"title" : ((name.split("/"))[1].split("."))[0]
-		};
-		html += juicer(tpl,data);
-	}
-	html += "</ul>";
-	
-	var counts = parseInt(json.length / pageSize) + 1;
-	html += index;
-	var tmp = "<a class=\"a1\">" + counts +"page</a>";
-	
-	if(pageNo > 1){
-		tmp += "<a href=\"###\" onclick=\"query(" + (pageNo - 1) + ")\">Previous page</a>";
-	}
-	
-	for(var i = 1; i <= counts; i++){
-		if(pageNo == i){
-			tmp +="<span>"+ i + "</span>";
-		}else{
-			tmp += "<a href=\"###\" onclick=\"query(" + i + ")\">" + i + "</a>";
+		if($(window).innerWidth()<1024){ 
+			$(".within_product").find("img").width($(window).innerWidth()*0.90);
+			$(".within_product").find("img").height($(window).innerWidth()*0.90);
 		}
-	}
-	
-	if(pageNo < counts){
-		tmp += "<a href=\"###\" onclick=\"query(" + (pageNo + 1) + ")\">Next page</a>";
-	}
-	
-	tmp += "</div></div>";
-	html += tmp;
-	$(".within_product").html(decodeURI(html));
-}
+	});
+   
+});
